@@ -1,12 +1,25 @@
 import React from 'react';
+import {
+  BrowserRouter,
+  Routes, //replaces "Switch" used till v5
+  Route,
+} from "react-router-dom";
+
+import HomeScreen from './screens/Home'
+import AboutScreen from './screens/About'
+import CityService from './services/CityService';
 
 function App() {
+  React.useEffect(()=>{
+    CityService.GetAllCities()
+  })
   return (
-    <div className="bg-red-300">
-      <h1 className="text-3xl font-bold underline text-red-600">
-        Simple React Typescript Tailwind Sample
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/about" element={<AboutScreen />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
