@@ -42,7 +42,7 @@ function About({ range, src }: TableProps) {
                         {
                             src && src.map((value,key) => (
                                 <tr key={key} className="bg-white border-b  dark:border-gray-700">
-                                    <td scope="row" className="px-6 py-4 font-medium  whitespace-nowrap">{value.tanggal}</td>
+                                    <td className="px-6 py-4 font-medium  whitespace-nowrap">{value.tanggal}</td>
                                     <td className="px-6 py-4">{value.imsak}</td>
                                     <td className="px-6 py-4">{value.subuh}</td>
                                     <td className="px-6 py-4">{value.terbit}</td>

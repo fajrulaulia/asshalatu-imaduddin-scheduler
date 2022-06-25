@@ -31,7 +31,7 @@ function Home() {
             const result = JSON.parse(localStorage.getItem("cities_cache") || "")
                 .data.filter((word: any) => word.lokasi.toLowerCase().includes(e.target.value.toLowerCase())) || [];
             SetSearchResult(result)
-          
+
 
         } else {
             SetSearchResult([])
@@ -48,11 +48,11 @@ function Home() {
     }, [])
 
 
-    const GetSchedulerHandler = (id:string) => {
+    const GetSchedulerHandler = (id: string) => {
         GetSchedulerByCodeCity.GetSchedulerByCodeCity(id).then((res: any) => {
             SetDataResult([res.data?.jadwal])
             SetDataKota(res.data.lokasi)
-        }).catch((err) => {
+        }).catch((err: any) => {
             console.log(err)
         })
     }
