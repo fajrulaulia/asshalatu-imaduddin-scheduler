@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function AppBar() {
     return (
-        <div className='shadow text-white flex flex-row justify-between bg-blue-500 px-20'>
+        <div className='shadow text-white flex lg:flex-row flex-col justify-between bg-blue-500 px-20'>
             <div className='grid grid-flow-row'>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
