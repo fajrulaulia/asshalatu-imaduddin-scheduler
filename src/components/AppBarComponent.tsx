@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 function AppBar() {
     return (
-        <div className='shadow text-white flex lg:flex-row flex-col justify-between bg-blue-500 px-20'>
+        <div className='shadow text-white flex lg:flex-row items-center flex-col justify-between bg-green-900 px-0 lg:px-32 py-5'>
+                    {/* <div className='shadow text-white flex flex-col items-center justify-between bg-blue-900 px-32 py-5'> */}
             <div className='grid grid-flow-row'>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -27,11 +28,11 @@ function AppBar() {
                         ></path>
                     </g>
                 </svg>
-                <p className='font-bold mb-2'>"Shalat itu tiang Agama"</p>
+                <p className='font-bold'>"Shalat itu tiang Agama"</p>
             </div>
-            <div className='grid grid-flow-col gap-6 items-center'>
-                <Link className="text-lg hover:text-black" to={"/"}>Home</Link>
-                <Link className="text-lg hover:text-black" to={"/about"}>About</Link>
+            <div className='grid grid-flow-col gap-6 items-center lg:items-baseline  w-full lg:w-auto justify-around'>
+                <Link className="text-lg text-gray-300 hover:text-gray-500 mt-4 shadow" to={"/"}>Home</Link>
+                <Link className="text-lg text-gray-300 hover:text-gray-500 mt-4 shadow" to={"/about"}>About</Link>
             </div>
         </div>
     )

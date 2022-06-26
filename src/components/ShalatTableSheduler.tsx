@@ -25,7 +25,7 @@ function About({ range, src }: TableProps) {
         < React.Fragment>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
                 <table className="w-full text-sm text-left">
-                    <thead className="text-xs  uppercase bg-gray-200">
+                    <thead className="text-xs text-yellow-300  uppercase bg-green-700">
                         <tr>
                             <th scope="col" className="px-6 py-3">Tanggal</th>
                             <th scope="col" className="px-6 py-3">Imsak</th>

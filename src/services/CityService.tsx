@@ -10,7 +10,7 @@ interface SchedulerByCodeCityIface {
 
 
 
-export default {
+const Service:any = {
 
     GetAllCities: () => {
         if (localStorage.getItem("cities_cache") === null) {
@@ -47,3 +47,5 @@ export default {
         })
     }
 }
+
+export default  Service

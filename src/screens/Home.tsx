@@ -25,6 +25,7 @@ function Home() {
     const [searchResult, SetSearchResult] = React.useState<Array<KotaSearchIface>>([])
     const [dataResult, SetDataResult] = React.useState<Array<SchedulerByCodeCityIface>>([])
     const [dataKota, SetDataKota] = React.useState<String>("")
+    const [loading, SetLoading] = React.useState<Boolean>(false)
 
     const SearchHandler = (e: any) => {
         if (e.target.value.length > 0) {
@@ -40,20 +41,21 @@ function Home() {
     const SetHandler = (v: string) => {
         GetSchedulerHandler(v)
         SetSearchResult([])
-
     }
 
     React.useEffect(() => {
-        GetSchedulerHandler("0119")
+        GetSchedulerHandler("0119") // default Banda Aceh dan Sekitarnya
     }, [])
 
 
     const GetSchedulerHandler = (id: string) => {
+        SetLoading(true)
         GetSchedulerByCodeCity.GetSchedulerByCodeCity(id).then((res: any) => {
             SetDataResult([res.data?.jadwal])
             SetDataKota(res.data.lokasi)
+            SetLoading(false)
         }).catch((err: any) => {
-            console.log(err)
+            SetLoading(false)
         })
     }
 
@@ -65,9 +67,12 @@ function Home() {
 
             <div className='flex flex-col items-center justify-center px-10 lg:px-40 overflow-x-auto'>
                 <Search passId={(SetHandler)} result={searchResult} onChange={SearchHandler} />
-
-                <p className='font-bold py-4 text-2xl'>Untuk wilayah {dataKota} dan sekitarnya</p>
-                <ShalatTableScheduler src={dataResult} range="1month" />
+                {loading ? <p>Sedang memuat data, mohon tunggu ...</p> :
+                    <React.Fragment>
+                        <p className='font-bold py-4 text-2xl'>Untuk wilayah {dataKota.toLocaleLowerCase()} dan sekitarnya</p>
+                        <ShalatTableScheduler src={dataResult} range="1month" />
+                    </React.Fragment>
+                }
             </div>
             <div>
 
