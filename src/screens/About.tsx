@@ -10,12 +10,13 @@ function About() {
                     <div className="container max-w-lg bg-white rounded m-12">
                         <div className="flex lg:flex-row flex-col justify-start items-center px-5 -mt-12 mb-5">
                             <span className="block relative h- w-32">
-                                <img alt="Photo by aldi sigun on Unsplash"
+
+                                <img alt="fajrul"
                                     src="https://media-exp1.licdn.com/dms/image/C5603AQFRylAH_K7J7Q/profile-displayphoto-shrink_400_400/0/1650735502584?e=1661990400&v=beta&t=TxQfV69ZIBqskGQsVAv0FtOPTG14K8cFolLKhN9ws-I"
                                     className="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1" />
                             </span>
                             <div>
-                                <h2 className="text-3xl font-bold text-green-800">Fajrul Aulia</h2>
+                                <h2 className="text-3xl font-bold text-green-800">Fajrul Aulia <span className="text-gray-400 mt-2 font-thin">فجر اوليا</span></h2>
                                 <p className="text-gray-400 mt-2">Fullstack Developer</p>
                             </div>
                         </div>

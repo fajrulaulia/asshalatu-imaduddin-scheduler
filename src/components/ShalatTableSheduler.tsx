@@ -1,7 +1,5 @@
 import React from "react";
 
-type RangeEnum = '1day' | '1week' | '1month'
-
 interface SchedulerByCodeCityIface {
     tanggal: string;
     imsak: string;
@@ -15,45 +13,74 @@ interface SchedulerByCodeCityIface {
 }
 
 interface TableProps {
-    range: RangeEnum,
-    src: Array<SchedulerByCodeCityIface>
+    src: SchedulerByCodeCityIface
 }
 
 
-function About({ range, src }: TableProps) {
+function About({ src }: TableProps) {
     return (
         < React.Fragment>
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg w-full lg:w-2/3">
                 <table className="w-full text-sm text-left">
                     <thead className="text-xs text-yellow-300  uppercase bg-green-700">
                         <tr>
-                            <th scope="col" className="px-6 py-3">Tanggal</th>
-                            <th scope="col" className="px-6 py-3">Imsak</th>
-                            <th scope="col" className="px-6 py-3">Shubuh</th>
-                            <th scope="col" className="px-6 py-3">Terbit</th>
-                            <th scope="col" className="px-6 py-3">Dhuha</th>
-                            <th scope="col" className="px-6 py-3">Dzuhur</th>
-                            <th scope="col" className="px-6 py-3">Ashar</th>
-                            <th scope="col" className="px-6 py-3">Margib</th>
-                            <th scope="col" className="px-6 py-3">Isya</th>
+                            <th scope="col" className="px-6 py-3">Nama Waktu</th>
+                            <th scope="col" className="px-6 py-3 text-center">Waktu Pelaksanaan Shalat</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            src && src.map((value,key) => (
-                                <tr key={key} className="bg-white border-b  dark:border-gray-700">
-                                    <td className="px-6 py-4 font-medium  whitespace-nowrap">{value.tanggal}</td>
-                                    <td className="px-6 py-4">{value.imsak}</td>
-                                    <td className="px-6 py-4">{value.subuh}</td>
-                                    <td className="px-6 py-4">{value.terbit}</td>
-                                    <td className="px-6 py-4">{value.dhuha}</td>
-                                    <td className="px-6 py-4">{value.dzuhur}</td>
-                                    <td className="px-6 py-4">{value.ashar}</td>
-                                    <td className="px-6 py-4">{value.maghrib}</td>
-                                    <td className="px-6 py-4">{value.isya}</td>
-                                </tr>
-                            ))
-                        }
+
+                        {/* <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">{src.tanggal}</td>
+                            <td className="px-6 py-3">{src.imsak}</td>
+                            <td className="px-6 py-3">{src.subuh}</td>
+                            <td className="px-6 py-3">{src.terbit}</td>
+                            <td className="px-6 py-3">{src.dhuha}</td>
+                            <td className="px-6 py-3">{src.dzuhur}</td>
+                            <td className="px-6 py-3">{src.ashar}</td>
+                            <td className="px-6 py-3">{src.maghrib}</td>
+                            <td className="px-6 py-3">{src.isya}</td>
+                        </tr> */}
+
+
+                        <tr className="bg-white border-b font-semibold dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Tanggal Pelaksanaan</td>
+                            <td className="px-6 py-3 text-center">{src.tanggal}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Imsak</td>
+                            <td className="px-6 py-3 text-center">{src.imsak}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Shubuh</td>
+                            <td className="px-6 py-3 text-center">{src.subuh}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Terbit</td>
+                            <td className="px-6 py-3 text-center">{src.terbit}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Dhuha</td>
+                            <td className="px-6 py-3 text-center">{src.dhuha}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Dzuhur</td>
+                            <td className="px-6 py-3 text-center">{src.dzuhur}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Ashar</td>
+                            <td className="px-6 py-3 text-center">{src.ashar}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Magrib</td>
+                            <td className="px-6 py-3 text-center">{src.maghrib}</td>
+                        </tr>
+                        <tr className="bg-white border-b  dark:border-gray-700">
+                            <td className="px-6 py-3 font-medium  whitespace-nowrap">Isya</td>
+                            <td className="px-6 py-3 text-center">{src.isya}</td>
+                        </tr>
+
+
                     </tbody>
                 </table>
             </div>

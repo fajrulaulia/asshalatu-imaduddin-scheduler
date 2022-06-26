@@ -23,7 +23,7 @@ interface SchedulerByCodeCityIface {
 function Home() {
 
     const [searchResult, SetSearchResult] = React.useState<Array<KotaSearchIface>>([])
-    const [dataResult, SetDataResult] = React.useState<Array<SchedulerByCodeCityIface>>([])
+    const [dataResult, SetDataResult] = React.useState<SchedulerByCodeCityIface>(Object)
     const [dataKota, SetDataKota] = React.useState<String>("")
     const [loading, SetLoading] = React.useState<Boolean>(false)
 
@@ -51,7 +51,7 @@ function Home() {
     const GetSchedulerHandler = (id: string) => {
         SetLoading(true)
         GetSchedulerByCodeCity.GetSchedulerByCodeCity(id).then((res: any) => {
-            SetDataResult([res.data?.jadwal])
+            SetDataResult(res.data?.jadwal)
             SetDataKota(res.data.lokasi)
             SetLoading(false)
         }).catch((err: any) => {
@@ -65,12 +65,12 @@ function Home() {
                 <AppBar />
             </div>
 
-            <div className='flex flex-col items-center justify-center px-10 lg:px-40 overflow-x-auto'>
+            <div className='flex flex-col items-center justify-center px-5 lg:px-40 overflow-x-auto my-5'>
                 <Search passId={(SetHandler)} result={searchResult} onChange={SearchHandler} />
                 {loading ? <p>Sedang memuat data, mohon tunggu ...</p> :
                     <React.Fragment>
-                        <p className='font-bold py-4 text-2xl'>Untuk wilayah {dataKota.toLocaleLowerCase()} dan sekitarnya</p>
-                        <ShalatTableScheduler src={dataResult} range="1month" />
+                        <p className='font-bold pb-4 text-2xl'>Untuk wilayah {dataKota.toLocaleLowerCase()} dan sekitarnya</p>
+                        <ShalatTableScheduler src={dataResult}  />
                     </React.Fragment>
                 }
             </div>

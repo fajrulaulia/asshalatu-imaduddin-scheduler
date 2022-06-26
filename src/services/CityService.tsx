@@ -10,7 +10,7 @@ interface SchedulerByCodeCityIface {
 
 
 
-const Service:any = {
+const Service: any = {
 
     GetAllCities: () => {
         if (localStorage.getItem("cities_cache") === null) {
@@ -29,9 +29,16 @@ const Service:any = {
     },
 
     GetSchedulerByCodeCity: (id: string) => {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        const ymformat = yyyy+"/"+mm+"/"+dd
+
         var config = {
             method: 'get',
-            url: `https://api.myquran.com/v1/sholat/jadwal/${id}/2022/06/26`,
+            url: `https://api.myquran.com/v1/sholat/jadwal/${id}/${ymformat}`,
             headers: {}
         };
 
@@ -48,4 +55,4 @@ const Service:any = {
     }
 }
 
-export default  Service
+export default Service

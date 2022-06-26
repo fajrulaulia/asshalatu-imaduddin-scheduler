@@ -13,7 +13,7 @@ interface SearchProps {
 function Search({ onChange, result, passId }: SearchProps) {
 
     return (
-        <div className='my-5 text-gray-700 flex flex-col w-full py-5'>
+        <div className='my-5 text-gray-700 flex flex-col w-2/3 py-5'>
             <div>
                 <div className="relative">
                     <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -22,7 +22,6 @@ function Search({ onChange, result, passId }: SearchProps) {
                     <input onChange={e => onChange(e)} type="search" className="block p-4 pl-10 w-full text-sm text-gray-900  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Cari Kota" required />
                     {/* <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-blue-500 font-medium rounded-lg text-sm px-4 py-2">Search</button> */}
                 </div>
-
             </div>
             <div>
                 {(result.length > 0) && <p className="font-semibold my-4">Pencarian data yang Antum maksud: </p>}
@@ -30,7 +29,7 @@ function Search({ onChange, result, passId }: SearchProps) {
                     {
                         result && (result.length > 0) && result.slice(0, 15).map((v, id) => {
                             return (
-                                <p onClick={()=>passId(v.id)} className="py-2 px-3 text-white rounded-md m-2 bg-blue-700 cursor-pointer" key={id}>{v.lokasi}</p>
+                                <p onClick={()=>passId(v.id)} className="py-2 px-3 text-white rounded-md m-1 bg-blue-700 text-xs cursor-pointer" key={id}>{v.lokasi}</p>
                             );
                         })
                     }

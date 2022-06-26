@@ -31,8 +31,8 @@ function AppBar() {
                 <p className='font-bold'>"Shalat itu tiang Agama"</p>
             </div>
             <div className='grid grid-flow-col gap-6 items-center lg:items-baseline  w-full lg:w-auto justify-around'>
-                <Link className="text-lg text-gray-300 hover:text-gray-500 mt-4 shadow" to={"/"}>Home</Link>
-                <Link className="text-lg text-gray-300 hover:text-gray-500 mt-4 shadow" to={"/about"}>About</Link>
+                <Link className="text-lg text-white hover:text-gray-500 mt-4 shadow" to={"/"}>Home</Link>
+                <Link className="text-lg text-white hover:text-gray-500 mt-4 shadow" to={"/about"}>About</Link>
             </div>
         </div>
     )
