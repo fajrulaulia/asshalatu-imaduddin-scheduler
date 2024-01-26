@@ -14,7 +14,7 @@ const Service: any = {
 
     GetAllCities: () => {
         if (localStorage.getItem("cities_cache") === null) {
-            Axios.get("https://api.myquran.com/v1/sholat/kota/semua").then((res: any) => {
+            Axios.get("https://api.myquran.com/v2/sholat/kota/semua").then((res: any) => {
                 if (res.data && res.data.length > 0) {
                     const datas = {
                         "datetime": Date.now(),
