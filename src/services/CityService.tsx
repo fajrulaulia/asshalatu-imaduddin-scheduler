@@ -38,7 +38,7 @@ const Service: any = {
 
         var config = {
             method: 'get',
-            url: `https://api.myquran.com/v1/sholat/jadwal/${id}/${ymformat}`,
+            url: `https://api.myquran.com/v2/sholat/jadwal/${id}/${ymformat}`,
             headers: {}
         };
 
